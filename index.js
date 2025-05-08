@@ -1,13 +1,15 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
-app.get("/download/:id", (req, res) => {
-  const fileId = req.params.id;
-  const directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
-  res.redirect(directLink);
+// Your Google Drive download functionality here
+
+app.get('/download/:fileId', (req, res) => {
+  const fileId = req.params.fileId;
+  // Implement the Google Drive download code here
+  res.send(`Downloading file with ID: ${fileId}`);
 });
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 });
